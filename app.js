@@ -11,6 +11,8 @@ const adminRoutes = require('./routes/admin');
 
 const shopRoutes = require('./routes/shop');
 
+const errorRoutes = require("./routes/error");
+
 const app = express();
 
 /* app.engine('hbs', expressHbs.engine({
@@ -32,9 +34,7 @@ app.use('/admin', adminRoutes);
 
 app.use(shopRoutes);
 
-app.use((req, res, next) => {
-    res.status(404).render('404', { pageTitle: 'Page Not Found'});
-})
+app.use(errorRoutes);
 
 app.listen(3000);
 
