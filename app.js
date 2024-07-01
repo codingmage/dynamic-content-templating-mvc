@@ -11,7 +11,9 @@ const adminRoutes = require('./routes/admin');
 
 const shopRoutes = require('./routes/shop');
 
-const errorRoutes = require("./routes/error");
+/* const errorRoutes = require("./routes/error"); */
+
+const errorsController = require("./controllers/errors");
 
 const app = express();
 
@@ -34,7 +36,8 @@ app.use('/admin', adminRoutes);
 
 app.use(shopRoutes);
 
-app.use(errorRoutes);
+/* app.use(errorRoutes); */
+app.use(errorsController.NotFoundError)
 
 app.listen(3000);
 

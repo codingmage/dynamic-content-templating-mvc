@@ -1,4 +1,4 @@
-const path = require("path")
+/* const path = require("path")
 
 const express = require("express")
 
@@ -8,4 +8,4 @@ const router = express.Router()
 
 router.use(errorsController.NotFoundError)
 
-module.exports = router
+module.exports = router */
