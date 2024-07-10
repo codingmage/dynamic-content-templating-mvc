@@ -22,7 +22,19 @@ exports.postAddProduct = (req, res, next) => {
 }
 
 exports.getProducts = (req, res, next) => {
-    // console.log("Another middleware");
+    Product.fetchAll(products => {
+        res.render('shop', 
+            {prods: 
+                products, 
+                pageTitle: 'Shop', 
+                path: '/', hasProducts: 
+                products.length > 0, 
+                activeShop: true, 
+                productCss: true
+            });
+    }) 
+
+        // console.log("Another middleware");
     /* res.sendFile(path.join(__dirname, '../' ,'views', 'shop.html')); */
 
 /*     console.log(adminData.products)
@@ -30,7 +42,7 @@ exports.getProducts = (req, res, next) => {
 
     // const products = adminData.products
 
-    const products = Product.fetchAll()
+    /*     const products = Product.fetchAll()
 
     res.render('shop', 
         {prods: 
@@ -40,5 +52,6 @@ exports.getProducts = (req, res, next) => {
             products.length > 0, 
             activeShop: true, 
             productCss: true
-        });
+        }); */
+
 }
